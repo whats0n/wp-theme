@@ -1,0 +1,6 @@
+<% _.each(symbols, function(symbol) { %>.<%= symbol.name %> {
+  width: <%= symbol.width %>em;
+  height: <%= symbol.height %>em;
+  fill: <%= symbol.fill %>;
+}
+<% }); %>
