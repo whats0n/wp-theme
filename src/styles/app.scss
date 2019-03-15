@@ -1,6 +1,6 @@
-@import 'generated/svg-sprite';
+@import 'helpers/mixins';
+@import 'helpers/variables';
 
-body {
-  color: black;
-  background: white;
-}
+@import 'reset';
+@import 'generated/svg-sprite';
+@import 'components/__index';

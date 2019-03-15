@@ -1,0 +1,14 @@
+.header {
+  color: $white;
+  background: #0030AE;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 15px;
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+}

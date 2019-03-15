@@ -8,9 +8,16 @@
 	<div class="out">
 		<!-- begin header -->
 		<header class="header">
-			<?php wp_nav_menu(array(
-				'theme_location' => 'header_menu',
-				'container_class' => 'header__nav'
-			)); ?>
+			<div class="header__container">
+				<?php
+					if (has_custom_logo()) {
+						the_custom_logo();
+					}
+				?>
+				<?php wp_nav_menu(array(
+					'theme_location' => 'header_menu',
+					'container_class' => 'header__nav'
+				)); ?>
+			</div>
 		</header>
 		<!-- end header -->

@@ -1,0 +1,7 @@
+@mixin clr {
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}

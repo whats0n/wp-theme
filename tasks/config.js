@@ -4,7 +4,8 @@ module.exports = {
     styles: 'src/styles/',
     stylesGen: 'src/styles/generated/',
     svgSprite: 'src/svg-sprite/',
-    scripts: 'scripts/'
+    scripts: 'scripts/',
+    images: 'src/images/'
   },
   build: {
     root: 'assets/',

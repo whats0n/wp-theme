@@ -3,6 +3,7 @@ const scripts = require('./webpack').scripts
 const server = require('./server')
 const sprites = require('./gulp/sprite-svg/sprite-svg');
 const styles = require('./gulp/styles');
+const copy = require('./gulp/copy');
 
 // begin tasks
 /*
@@ -17,7 +18,7 @@ gulp.task('js', gulp.series('css', scripts))
 // end tasks
 
 // begin build tasks
-gulp.task('build', gulp.parallel('js'))
+gulp.task('build', gulp.parallel('js', 'copy'))
 // end build tasks
 
 // begin watch

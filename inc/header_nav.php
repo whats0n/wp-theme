@@ -23,13 +23,26 @@
 	// update classes for menu item/subitem
 	add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
 		if ($args->theme_location === 'header_menu') {
+			if (
+				in_array( 'current-menu-item', $classes ) ||
+				in_array( 'current-menu-ancestor', $classes ) ||
+				in_array( 'current-menu-parent', $classes ) ||
+				in_array( 'current_page_parent', $classes ) ||
+				in_array( 'current_page_ancestor', $classes )
+			) {
+				if (in_array( 'current-menu-item', $classes )) $classes = ['is-active'];
+				if (in_array( 'current-menu-ancestor', $classes )) $classes = ['is-active-ancestor'];
+				if (in_array( 'current-menu-parent', $classes )) $classes = ['is-active-parent'];
+				if (in_array( 'current_page_parent', $classes )) $classes = ['current_page_parent'];
+				if (in_array( 'current_page_ancestor', $classes )) $classes = ['current_page_ancestor'];
+			} else $classes = [];
+
 			if ($depth === 0) {
-				$classes = ['nav__item'];
+				array_push($classes, 'nav__item');
 			} else {
-				$classes = [
-					'nav__subitem',
-					'nav__subitem_lvl_' . $depth
-				];
+				array_push($classes, 'nav__subitem');
+				array_push($classes, 'nav__subitem_lvl_' . $depth);
+				return $classes;
 			}
 
 			if ($item->current) {
