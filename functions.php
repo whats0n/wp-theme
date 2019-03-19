@@ -1,6 +1,6 @@
 <?php
-	/* Add Custom scripts and styles */
 	add_action('wp_enqueue_scripts', function () {
+		/* Add Custom scripts and styles */
 		wp_enqueue_style('custom', get_template_directory_uri() . '/assets/css/app.css');
 	});
 	
@@ -34,5 +34,36 @@
 			'header_menu' => 'Header Menu',
 			'footer_menu' => 'Footer Menu'
 		));
+	});
+
+	add_action('init', function () {
+		// Creat Post Type
+	  $labels = array(
+	    'name' => __( 'Abouts' ),
+	    'singular_name' => __( 'Abouts' ),
+	    'add_new' => __( 'New About' ),
+	    'add_new_item' => __( 'Add New About' ),
+	    'edit_item' => __( 'Edit About' ),
+	    'new_item' => __( 'New About' ),
+	    'view_item' => __( 'View About' ),
+	    'search_items' => __( 'Search Abouts' ),
+	    'not_found' =>  __( 'No Abouts Found' ),
+	    'not_found_in_trash' => __( 'No Abouts found in Trash' ),
+	  );
+	  $args = array(
+	    'labels' => $labels,
+	    'has_archive' => true,
+	    'public' => true,
+	    'hierarchical' => false,
+	    'menu_position' => 5,
+	    'supports' => array(
+	      'title',
+	      'editor',
+	      'excerpt',
+	      'custom-fields',
+	      'thumbnail'
+	    ),
+	  );
+	  register_post_type('abouts', $args);
 	});
 ?>
